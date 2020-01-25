@@ -1,0 +1,17 @@
+<div class="card border-primary mb-3 text-center">
+  <div class="card-body">
+    <div *ngFor="let bid of bidService.bids; let i=index">
+      <div *ngIf="i<1">
+        <p id="bid1">Current highest bid: {{bid?.bidAmount}}$</p>
+        <p id="bidder1">Current highest bidder: {{bid?.userName}}</p>
+      </div>
+    </div>
+    <div *ngIf="bidService.bids[0] == null">
+      <p id="bid2">Current highest bid: </p>
+      <p id="bidder2">Current highest bidder: </p>
+    </div>
+    <p class="card-text">Deadline: {{deadline}} </p>
+    <p class="card-text">Balance Time: {{timeLeft}} </p>
+    <button (click) = "onDelete()" class="btn btn-primary float-sm-right">Restore</button>
+  </div>
+</div>
